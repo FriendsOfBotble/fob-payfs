@@ -2,6 +2,8 @@
 
 Plugin này cho phép bạn tích hợp PayFS để tự động xác thực thanh toán qua phương thức chuyển khoản ngân hàng.
 
+![](./art/screenshot.png)
+
 ## Yêu cầu tối thiểu
 
 - Botble core 7.0.5 hoặc cao hơn.
