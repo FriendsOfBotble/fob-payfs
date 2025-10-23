@@ -1,0 +1,11 @@
+{
+    "id": "friendsofbotble/fob-payfs",
+    "name": "PayFS for Botble",
+    "namespace": "FriendsOfBotble\\PayFS\\",
+    "provider": "FriendsOfBotble\\PayFS\\Providers\\PayFSServiceProvider",
+    "author": "Friends Of Botble",
+    "url": "https://friendsofbotble.com",
+    "version": "1.0.0",
+    "description": "Tích hợp PayFS vào Botble CMS",
+    "minimum_core_version": "7.0.5"
+}
