@@ -4,6 +4,12 @@ Plugin này cho phép bạn tích hợp PayFS để tự động xác thực tha
 
 ![](./art/screenshot.png)
 
+## Video hướng dẫn
+
+[![Video hướng dẫn cài đặt và sử dụng PayFS](https://img.youtube.com/vi/MDitrSKhF6k/maxresdefault.jpg)](https://youtu.be/MDitrSKhF6k)
+
+**[👉 Xem video hướng dẫn chi tiết tại đây](https://youtu.be/MDitrSKhF6k)**
+
 ## Yêu cầu tối thiểu
 
 - Botble core 7.0.5 hoặc cao hơn.
