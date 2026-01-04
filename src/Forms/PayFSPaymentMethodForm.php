@@ -33,6 +33,7 @@ class PayFSPaymentMethodForm extends PaymentMethodForm
                     ->choices(PayFS::getBanksList())
                     ->selected(get_payment_setting('bank', PAYFS_PAYMENT_METHOD_NAME))
                     ->label('Ngân hàng')
+                    ->helperText('Chọn ngân hàng bạn đã đăng ký với PayFS để nhận thanh toán.')
                     ->toArray()
             )
             ->add(
@@ -41,6 +42,8 @@ class PayFSPaymentMethodForm extends PaymentMethodForm
                 TextFieldOption::make()
                     ->label('Số tài khoản')
                     ->value(get_payment_setting('account_number', PAYFS_PAYMENT_METHOD_NAME))
+                    ->placeholder('VD: 0123456789')
+                    ->helperText('Số tài khoản ngân hàng của bạn đã đăng ký với PayFS.')
                     ->toArray()
             )
             ->add(
@@ -49,6 +52,8 @@ class PayFSPaymentMethodForm extends PaymentMethodForm
                 TextFieldOption::make()
                     ->label('Chủ tài khoản')
                     ->value(get_payment_setting('account_holder', PAYFS_PAYMENT_METHOD_NAME))
+                    ->placeholder('VD: NGUYEN VAN A')
+                    ->helperText('Tên chủ tài khoản ngân hàng (viết in hoa, không dấu).')
                     ->toArray()
             )
             ->add(
@@ -57,6 +62,7 @@ class PayFSPaymentMethodForm extends PaymentMethodForm
                 TextFieldOption::make()
                     ->value(get_payment_setting('prefix', PAYFS_PAYMENT_METHOD_NAME, 'SDH'))
                     ->label('Tiền tố mã thanh toán')
+                    ->placeholder('VD: SDH')
                     ->helperText('Chỉ được phép chứa chữ cái và số, không dấu và không khoảng trắng. Ví dụ: SDH')
             )
             ->add(
@@ -65,6 +71,7 @@ class PayFSPaymentMethodForm extends PaymentMethodForm
                 TextFieldOption::make()
                     ->label('API Key')
                     ->value(get_payment_setting('api_key', PAYFS_PAYMENT_METHOD_NAME))
+                    ->placeholder('VD: pk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
                     ->helperText('API Key của PayFS (X-Client-API-Key). Lấy từ PayFS dashboard.')
                     ->toArray()
             )
@@ -74,6 +81,7 @@ class PayFSPaymentMethodForm extends PaymentMethodForm
                 TextFieldOption::make()
                     ->label('Webhook Secret')
                     ->value(get_payment_setting('webhook_secret', PAYFS_PAYMENT_METHOD_NAME))
+                    ->placeholder('VD: whsec_xxxxxxxxxxxxxxxxxxxxxxxx...')
                     ->helperText('Webhook secret của PayFS (tùy chọn, dùng để xác thực chữ ký webhook). Lấy từ PayFS dashboard.')
                     ->toArray()
             )
