@@ -9,7 +9,7 @@ class PaymentStatusRequest extends Request
     public function rules(): array
     {
         return [
-            'charge_id' => ['required', 'string', 'exists:payments'],
+            'charge_id' => ['required', 'string'],
         ];
     }
 }
