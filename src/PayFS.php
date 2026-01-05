@@ -19,14 +19,12 @@ class PayFS
         $accountNumber = get_payment_setting('account_number', PAYFS_PAYMENT_METHOD_NAME);
         $accountName = get_payment_setting('account_holder', PAYFS_PAYMENT_METHOD_NAME);
 
-        // VietQR API format: https://img.vietqr.io/image/{BANK_ID}-{ACCOUNT_NO}-{TEMPLATE}.jpg
         $baseUrl = sprintf(
             'https://img.vietqr.io/image/%s-%s-compact2.jpg',
             $bankCode,
             $accountNumber
         );
 
-        // Add query parameters
         $params = http_build_query([
             'amount' => $amount,
             'addInfo' => $chargeId,
@@ -108,10 +106,13 @@ class PayFS
     {
         $prefix = get_payment_setting('prefix', PAYFS_PAYMENT_METHOD_NAME, 'SHD');
 
-        preg_match('/(' . preg_quote($prefix, '/') . '\d+)/', $content, $matches);
+        // Match prefix + optional separator (hyphen, space, or none) + digits
+        preg_match('/(' . preg_quote($prefix, '/') . ')[\-\s]?(\d+)/', $content, $matches);
 
-        if (isset($matches[1])) {
-            return $matches[1];
+        if (isset($matches[1]) && isset($matches[2])) {
+            // Return normalized format: PREFIX + DIGITS (no separator)
+            // This matches how charge_id is generated in PayFSPaymentService
+            return $matches[1] . $matches[2];
         }
 
         return null;
